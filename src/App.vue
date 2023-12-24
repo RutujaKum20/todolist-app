@@ -3,8 +3,8 @@
     <h1>ToDo App</h1>
     <input required v-model="newTodo" type="text" name="new todo" placeholder="Add your new todo">
     <div class="button">
-        <button type="submit" class="add">Add New ToDo</button>
-        <button type="button" class="allDone" @click="markAllDone">Mark all Done</button>
+        <button type="submit" class="add"><img src="./assets/add.svg"></button>
+        <button type="button" class="allDone" @click="markAllDone">All Done</button>
         <button type="button" class="clearAll" @click="clearAll">Clear All</button>
     </div>
 
@@ -13,7 +13,7 @@
         <ul>
             <li v-for="(todo, index) in todos" :key="todo.id" class="todo">
                 <h2 :class="{ done: todo.done }" @click="toggleDone(todo)">{{ todo.content }}</h2>
-                <button @click="removeTodo(index)">Delete</button>
+                <button @click="removeTodo(index)"><img src="./assets/delete.svg"></button>
             </li>
         </ul>
     </div>
@@ -74,7 +74,7 @@ export default {
 
 <style>
 form {
-    width: 40%;
+    width: 350px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -83,8 +83,8 @@ form {
     background-color: white;
     margin: auto;
     border-radius: 20px;
-    margin-top: 90px;
-    background-color: beige;
+    margin-top: 10rem;
+    padding: 0.5rem;
 }
 
 form input {
@@ -99,6 +99,7 @@ form button {
 body {
     /* background-color: aqua; */
     background:linear-gradient(45deg, red, blue);
+    height:100vh;
 
 }
 
@@ -106,7 +107,7 @@ body {
 .allDone,
 .clearAll {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -114,6 +115,7 @@ body {
     background-color: blueviolet;
     color: white;
     cursor: pointer;
+    padding:0.5rem;
 
 }
 
@@ -128,33 +130,42 @@ body {
 }
 
 .todolist ul {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    justify-content: flex-start;
+    padding:0;
+    gap:10px;
 
 }
 
 .todolist li {
-    background-color: white;
+    background-color: rgb(247, 245, 245);
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    justify-content: flex-start;
     margin: auto;
-    gap: 1 rem;
-    border: 1px solid black;
-    gap: 1rem;
-    padding-left: 20px;
+    border: 1px ;
+    display:flex;
+    justify-content: space-between;
+
+
+}
+ 
+.todolist h2{
+    padding: 10px;
+    margin: 10px;
+}
+
+.todolist button:hover{
+    background-color:rgb(208, 43, 43);
 }
 
 .todolist button {
-    background-color: red;
+    padding: 10px;
+    margin: 10px;
+    /* background-color: red;
     display: flex;
     width: 50px;
     margin: auto;
-    justify-content: flex-end;
+    justify-content: flex-end; */
 }
 
 .done {
